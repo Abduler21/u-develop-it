@@ -10,6 +10,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 // Default response for any other request (Not Found)
+
+db.query(`SELECT * FROM candidates`, (err, rows) => {
+    console.log(rows);
+  });
+
 app.use((req, res) => {
   res.status(404).end();
 });
